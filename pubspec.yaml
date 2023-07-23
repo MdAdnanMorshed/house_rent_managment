@@ -5,13 +5,13 @@ description: A new Flutter project.
 environment: 
   sdk: '>=2.19.4 <3.0.0'
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get_cli: ^1.8.1
   get: 4.6.5
   get_storage: ^2.0.3
   shared_preferences: ^2.0.17
-  dropdown_button2: ^2.0.0
+
   dotted_border: ^2.0.0+3
   date_time_picker_widget: ^1.0.1+4
   cloud_firestore: ^4.5.0
@@ -20,9 +20,9 @@ dependencies:
   firebase_database: 10.1.0
 
 
-
-  flutter: 
+  flutter:
     sdk: flutter
+  dropdown_button2: ^2.0.0
 
 dependency_overrides:
   firebase_core_platform_interface: 4.6.0
