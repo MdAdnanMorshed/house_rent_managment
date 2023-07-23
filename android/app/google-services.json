@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "552620298384",
+    "firebase_url": "https://housemanagment-555b8-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "housemanagment-555b8",
+    "storage_bucket": "housemanagment-555b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552620298384:android:1f1856be10cb6fcc148815",
+        "android_client_info": {
+          "package_name": "com.app.house_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552620298384-hnd0j4siubc999mouo4blrhpn2p7967e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEawhuZtdUiMM4Dg0jiHCjz8pMptIjdAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552620298384-hnd0j4siubc999mouo4blrhpn2p7967e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
