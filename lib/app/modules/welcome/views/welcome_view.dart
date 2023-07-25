@@ -45,9 +45,7 @@ class WelcomeView extends GetView<WelcomeController> {
                       Text('3. Flat Assign by Rentwer'),
                       Text('more Info..'),
                       Text('1. Create House '),
-                      Text('1. Create House dfggggggggggggg'),
-                      Text('1. Create House '),
-                      Text('1. Create House '),
+
 
                     ],
                   ),
