@@ -36,8 +36,6 @@ class WelcomeView extends GetView<WelcomeController> {
                         height: 5,
                         thickness: 5,
                         color: Colors.grey,
-
-
                       ),
 
                       Text('1. Create House '),
