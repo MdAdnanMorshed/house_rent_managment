@@ -13,8 +13,6 @@ import 'package:house_management/app/core/values/app_space.dart';
 import 'package:house_management/app/global_widgets/custom_text_field.dart';
 import 'package:house_management/app/routes/app_pages.dart';
 
-import '../../../global_widgets/bottom_withbg_color_widget.dart';
-import '../../../global_widgets/header_withbg_color_widget.dart';
 import '../../../models/paly_role_model.dart';
 import '../controllers/login_controller.dart';
 
