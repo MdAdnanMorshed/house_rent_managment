@@ -27,19 +27,16 @@ Future<void> main() async {
 
   await GetStorage.init();
   preferences = await SharedPreferences.getInstance();
-  runApp(
-    GetMaterialApp(
+  runApp(GetMaterialApp(
       title: "Application",
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       translationsKeys: AppTranslation.translationsKeys,
       locale: Locale(preferences.getString(AppKeys.languageCode) ?? 'en'),
-      fallbackLocale:
-          Locale(preferences.getString(AppKeys.languageCode) ?? 'en'),
+      fallbackLocale: Locale(preferences.getString(AppKeys.languageCode) ?? 'en'),
       popGesture: true,
-    ),
-  );
+    ),);
 }
 
 
