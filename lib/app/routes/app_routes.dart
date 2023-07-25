@@ -6,17 +6,18 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const LOGIN = _Paths.LOGIN;
   static const CREATE_FLAT = _Paths.CREATEFLAT;
-  static const RENT_ASSIGN= _Paths.RENTASSIGN;
-  static const RENT_ASSIGN_CONFIRM= _Paths.RENTASSIGNCONFIRM;
-  static const RENT_RENTOWNER_CHAT= _Paths.RENTANDRENTOWNERCHAT;
-  static const ADMIN_DASHBOARD= _Paths.ADMINDASHBOARD;
-  static const ADMIN_PLAY_ROLE= _Paths.ADMINPLAYROLE;
-  static const ADMIN_FALT_NO= _Paths.ADMINFLATNO;
-  static const ADMIN_FALT_TYPE= _Paths.ADMINFLATTYPE;
-  static const ADMIN_FLAT_SIZE= _Paths.ADMINPFLATSIZE;
-  static const ADMIN_FLAT_FLOOR= _Paths.ADMINFLATFLOOR;
-  static const ADMIN_REGISTRATION= _Paths.ADMINREGISTRATION;
+  static const RENT_ASSIGN = _Paths.RENTASSIGN;
+  static const RENT_ASSIGN_CONFIRM = _Paths.RENTASSIGNCONFIRM;
+  static const RENT_RENTOWNER_CHAT = _Paths.RENTANDRENTOWNERCHAT;
+  static const ADMIN_DASHBOARD = _Paths.ADMINDASHBOARD;
+  static const ADMIN_PLAY_ROLE = _Paths.ADMINPLAYROLE;
+  static const ADMIN_FALT_NO = _Paths.ADMINFLATNO;
+  static const ADMIN_FALT_TYPE = _Paths.ADMINFLATTYPE;
+  static const ADMIN_FLAT_SIZE = _Paths.ADMINPFLATSIZE;
+  static const ADMIN_FLAT_FLOOR = _Paths.ADMINFLATFLOOR;
+  static const ADMIN_REGISTRATION = _Paths.ADMINREGISTRATION;
   static const FLAT_DETAILS = _Paths.FLAT_DETAILS;
+  static const WELCOME = _Paths.WELCOME;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const ADMINFLATFLOOR = '/admin-flat_floor';
   static const ADMINREGISTRATION = '/admin-registration';
   static const FLAT_DETAILS = '/flat-details';
+  static const WELCOME = '/welcome';
 }
