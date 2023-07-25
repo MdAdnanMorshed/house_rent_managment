@@ -23,7 +23,6 @@ class WelcomeView extends GetView<WelcomeController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
-
                     children: [
                       SizedBox(height: 10,),
                       Image.asset(
