@@ -16,7 +16,8 @@ dependencies:
   date_time_picker_widget: ^1.0.1+4
   cloud_firestore: ^4.5.0
 
-  firebase_core: 2.9.0
+  firebase_auth: ^4.7.2
+  firebase_core: ^2.15.0
   firebase_database: 10.1.0
 
 
