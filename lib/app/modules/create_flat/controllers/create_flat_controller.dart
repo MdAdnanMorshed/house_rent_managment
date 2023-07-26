@@ -14,14 +14,14 @@ import '../../../routes/app_pages.dart';
 class CreateFlatController extends GetxController {
   final count = 0.obs;
 
-  TextEditingController flatFloorController=TextEditingController();
-  TextEditingController flatAmountController=TextEditingController();
-  TextEditingController flatServiceController=TextEditingController();
-  TextEditingController flatWaterBillController=TextEditingController();
-  TextEditingController flatGasBillController=TextEditingController();
+  TextEditingController flatFloorController = TextEditingController();
+  TextEditingController flatAmountController = TextEditingController();
+  TextEditingController flatServiceController = TextEditingController();
+  TextEditingController flatWaterBillController = TextEditingController();
+  TextEditingController flatGasBillController = TextEditingController();
 
-  var mailOrPhoneController= TextEditingController();
-  var passwordController= TextEditingController();
+  var mailOrPhoneController = TextEditingController();
+  var passwordController = TextEditingController();
 
   final _flats = <CreateFlatModel>[].obs;
   List<CreateFlatModel> get playRoleList => _flats;
@@ -32,7 +32,6 @@ class CreateFlatController extends GetxController {
   final flatNoValue = ''.obs;
   final _flatNos = <FlatNoModel>[].obs;
   List<FlatNoModel> get flatNoList => _flatNos;
-
 
   /// Flat Floor
   final dropdownFlatFloorValue = '2nd floor'.obs;
@@ -64,34 +63,38 @@ class CreateFlatController extends GetxController {
   }
 
   void increment() => count.value++;
-  flatNo(List<FlatNoModel> data){
-    _flatNos.value=data;
+  flatNo(List<FlatNoModel> data) {
+    _flatNos.value = data;
   }
 
-  flatFloor(List<FlatFloorModel> data){
-    _flatFloors.value=data;
+  flatFloor(List<FlatFloorModel> data) {
+    _flatFloors.value = data;
   }
 
-  flatSize(List<FlatSizeModel> data){
-    _flatSizes.value=data;
+  flatSize(List<FlatSizeModel> data) {
+    _flatSizes.value = data;
   }
 
   createFlat() async {
+    final db = FirebaseFirestore.instance;
 
-    final db= FirebaseFirestore.instance;
+    final refKey = db.collection('RentOwner_CreateFlat').doc();
 
-    final refKey= db.collection('RentOwner_CreateFlat').doc();
-
-    if (flatFloorID.toString()=='' && flatSizeID.toString() =='' && flatNoID.toString()=='' )  {
+    if (flatFloorID.toString() == '' &&
+        flatSizeID.toString() == '' &&
+        flatNoID.toString() == '') {
       Get.snackbar('Alert', 'Please Select your drop down ');
     } else {
-      if (flatAmountController.text == '' && flatServiceController.text == '' &&flatGasBillController.text =='' && flatWaterBillController.text=='' ) {
+      if (flatAmountController.text == '' &&
+          flatServiceController.text == '' &&
+          flatGasBillController.text == '' &&
+          flatWaterBillController.text == '') {
         print('AdminPlayRoleController.createPlayRole Empty Data');
       } else {
-
         CreateFlatModel createFlatModel = CreateFlatModel(
           createFlatID: refKey.id,
-          roleID: '0EjaCfFCHxsLBupU6eMh', // Login er por theke pabo aikon static value set korchi
+          roleID:
+              '0EjaCfFCHxsLBupU6eMh', // Login er por theke pabo aikon static value set korchi
           flatFloorId: flatFloorID.toString(),
           flatFloor: flatFloorValue.toString(),
           flatSizeId: flatSizeID.toString(),
@@ -104,7 +107,6 @@ class CreateFlatController extends GetxController {
           flatWaterBill: flatWaterBillController.text,
           createdAT: DateTime.now(),
           updateAt: DateTime.now(),
-
         );
         await refKey.set(createFlatModel.toJson()).then((value) {
           flatAmountController.clear();
@@ -117,7 +119,6 @@ class CreateFlatController extends GetxController {
       }
     }
   }
-
 
   getFlat(List<CreateFlatModel> data) {
     _flats.value = data;

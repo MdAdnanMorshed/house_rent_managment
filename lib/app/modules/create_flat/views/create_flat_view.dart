@@ -47,7 +47,7 @@ class CreateFlatView extends GetView<CreateFlatController> {
               const HeaderWithBgColorWidget(),
               Container(
                 margin: const EdgeInsets.only(
-                  top: 20,
+                  top: 5,
                   bottom: 30,
                   left: 10,
                   right: 10,
@@ -76,9 +76,8 @@ class CreateFlatView extends GetView<CreateFlatController> {
                     height: 120,
                   ),
                   // _getDataPlayRole(_),
-                  AppSpace.spaceH12,
-                  _selectFlatRoomDropDown(context, _),
 
+                  _selectFlatRoomDropDown(context, _),
 
                   AppSpace.spaceH14,
                   _selectFlatNoDropDown(context, _),
@@ -86,7 +85,7 @@ class CreateFlatView extends GetView<CreateFlatController> {
                   AppSpace.spaceH14,
 
                   _selectFlatSizDropDown(context, _),
-                  AppSpace.spaceH16,
+                  AppSpace.spaceH14,
 
                   CustomTextField(
                     controller: _.flatAmountController,
