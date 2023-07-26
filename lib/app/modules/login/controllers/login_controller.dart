@@ -4,6 +4,7 @@ import 'package:house_management/app/models/paly_role_model.dart';
 
 class LoginController extends GetxController {
   final count = 0.obs;
+  final isRegister = true.obs;
   final dropdownValue = 'Admin'.obs;
   final playRoleID = ''.obs;
   var loginRole = <DropdownMenuItem>[].obs;
@@ -30,6 +31,11 @@ class LoginController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  firebaseRegisterMailAndPassword(){
+
+  }
+  firebaseLoginMailAndPassword(){}
 
 
   role(List<PlayRoleModel> data){
