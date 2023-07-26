@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:house_management/app/core/values/app_space.dart';
+import 'package:house_management/app/routes/app_pages.dart';
 
 import '../../../core/helpers/app_helper.dart';
 import '../../../core/theme/style_text.dart';
@@ -14,52 +16,8 @@ class WelcomeView extends GetView<WelcomeController> {
     return SafeArea(
       child: Scaffold(
         body: Stack(alignment: Alignment.center, children: [
-          Positioned(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(height: 10,),
-                      Image.asset(
-                        'assets/images/logo.png',
-                        fit: BoxFit.fill,
-                        width: 200,
-                        height: 150,
-                      ),
-                      Text('Main Features',style: TextStyle(fontSize: 30,color: Colors.red),),
-                      Divider(
-                        height: 5,
-                        thickness: 5,
-                        color: Colors.grey,
-                      ),
 
-                      Text('1. Create House '),
-                      Text('2. Create Flat'),
-                      Text('3. Flat Assign by Rentwer'),
-                      Text('more Info..'),
-                      Text('1. Create House '),
-                    ],
-                  ),
-                  Container(
-                    height: 50,
-                    width: Get.width - 30,
-                    alignment: Alignment.center,
-                    decoration: Helpers.customCircularDecoretion(
-                        context, AppColors.primaryColor, 10),
-                    child: Text(
-                      'Welcome '.tr,
-                      style: AppTextStyle.button,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+
           Image.asset(
             'assets/images/house_rent_bg.jpg',
             height: double.infinity,
@@ -67,6 +25,66 @@ class WelcomeView extends GetView<WelcomeController> {
             fit: BoxFit.fill,
             opacity: const AlwaysStoppedAnimation(.2),
           ),
+
+            Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+
+                    AppSpace.spaceH20,
+                    Image.asset(
+                      'assets/images/logo.png',
+                      fit: BoxFit.fill,
+                      width: 200,
+                      height: 150,
+                    ),
+                    Text(
+                      'Main Features',
+                      style: TextStyle(fontSize: 30, color: Colors.red),
+                    ),
+                    AppSpace.spaceH10,
+                    Text('1. Create House '),
+                    Text('2. Create Flat',style: TextStyle(fontWeight: FontWeight.bold,),),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                    Text('3. Flat Assign by Rentwer',style: TextStyle(fontWeight: FontWeight.bold,)),
+                   ],
+                ),
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    print('WelcomeView.build');
+                    Get.toNamed(Routes.LOGIN);
+                  },
+                  child: Container(
+                    height: 50,
+
+
+                    decoration: Helpers.customCircularDecoretion(
+                        context, AppColors.primaryColor, 10),
+                    child: Center(
+                      child: Text(
+                        'Welcome '.tr,
+                        style: AppTextStyle.button,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
         ]),
       ),
     );
