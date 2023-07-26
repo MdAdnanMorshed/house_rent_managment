@@ -74,7 +74,6 @@ class CreateFlatController extends GetxController {
   flatSize(List<FlatSizeModel> data) {
     _flatSizes.value = data;
   }
-
   createFlat() async {
     final db = FirebaseFirestore.instance;
     final refKey = db.collection('RentOwner_CreateFlat').doc();
