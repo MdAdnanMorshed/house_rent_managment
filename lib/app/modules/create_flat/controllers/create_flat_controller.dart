@@ -77,7 +77,6 @@ class CreateFlatController extends GetxController {
 
   createFlat() async {
     final db = FirebaseFirestore.instance;
-
     final refKey = db.collection('RentOwner_CreateFlat').doc();
 
     if (flatFloorID.toString() == '' &&
