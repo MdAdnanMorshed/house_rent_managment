@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +7,7 @@ import 'package:house_management/app/core/theme/style_text.dart';
 import 'package:house_management/app/core/values/app_colors.dart';
 import 'package:house_management/app/core/values/app_space.dart';
 import 'package:house_management/app/global_widgets/custom_text_field.dart';
-import 'package:house_management/app/routes/app_pages.dart';
-
+import '../../../core/helpers/auth.dart';
 import '../../../models/paly_role_model.dart';
 import '../controllers/login_controller.dart';
 
@@ -41,7 +39,7 @@ class LoginView extends GetView<LoginController> {
                   _getDataPlayRole(_),
                   AppSpace.spaceH14,
                   CustomTextField(
-                    controller:  controller.mailOrPhoneController,
+                    controller: controller.mailOrPhoneController,
                     padding: const EdgeInsets.only(right: 10, left: 10),
                     decoration: Helpers.customCircularDecoretion(
                         context, AppColors.grey.withOpacity(0.2), 10),
@@ -50,7 +48,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   AppSpace.spaceH14,
                   CustomTextField(
-                    controller:  controller.passwordController,
+                    controller: controller.passwordController,
                     padding: const EdgeInsets.only(right: 10, left: 10),
                     decoration: Helpers.customCircularDecoretion(
                         context, AppColors.grey.withOpacity(0.2), 10),
@@ -59,19 +57,17 @@ class LoginView extends GetView<LoginController> {
                   ),
                   AppSpace.spaceH26,
                   InkWell(
-                    onTap: () {
-                      Map<String,dynamic> loginData={
-                         'playRoleId':controller.playRoleID.value,
-                         'emailOrPhone':controller.mailOrPhoneController.text,
-                         'password':controller.passwordController.text,
-                      };
+                    onTap: () async {
 
-                      print('LoginView._buildBody $loginData');
-
-                      if (_.dropdownValue == 'Admin') {
-                        Get.toNamed(Routes.ADMIN_DASHBOARD);
-                      } else {
-                        Get.toNamed(Routes.HOME);
+                      if (_.isRegister.value) {
+                        await Auth().registerWithMailAndPassword(
+                            _.mailOrPhoneController.text,
+                            _.passwordController.text);
+                      }
+                      else {
+                        await Auth().loginWithMailAndPassword(
+                            _.mailOrPhoneController.text,
+                            _.passwordController.text);
                       }
                     },
                     child: Container(
@@ -80,7 +76,9 @@ class LoginView extends GetView<LoginController> {
                       alignment: Alignment.center,
                       decoration: Helpers.customCircularDecoretion(
                           context, AppColors.primaryColor, 10),
-                      child: Text(
+                      child:
+
+                      Text(
                         'Login'.tr,
                         style: AppTextStyle.button,
                       ),
@@ -116,7 +114,8 @@ class LoginView extends GetView<LoginController> {
           List<PlayRoleModel> playRole = [];
 
           for (var doc in snapshot.data!.docs) {
-            playRole.add(PlayRoleModel.fromJson(doc.data() as Map<String, dynamic>));
+            playRole.add(
+                PlayRoleModel.fromJson(doc.data() as Map<String, dynamic>));
           }
           controller.role(playRole);
 
@@ -142,9 +141,10 @@ class LoginView extends GetView<LoginController> {
                             value.playRole.toString(),
                             style: AppTextStyle.labelSmall,
                           ),
-                         onTap: (){
-                          controller.playRoleID.value=value.playRoleId.toString();
-                         },
+                          onTap: () {
+                            controller.playRoleID.value =
+                                value.playRoleId.toString();
+                          },
                         );
                       }).toList(),
                       onChanged: (String? newValue) {
