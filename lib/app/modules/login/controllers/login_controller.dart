@@ -13,6 +13,7 @@ class LoginController extends GetxController {
   var mailOrPhoneController= TextEditingController();
   var passwordController= TextEditingController();
 
+
   List<PlayRoleModel> get playRoleList => _playRoles;
   @override
   void onInit() {

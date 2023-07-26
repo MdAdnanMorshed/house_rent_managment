@@ -20,7 +20,6 @@ dependencies:
   firebase_core: ^2.15.0
   firebase_database: 10.1.0
 
-
   flutter:
     sdk: flutter
   dropdown_button2: ^2.0.0
