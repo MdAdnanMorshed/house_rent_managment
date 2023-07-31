@@ -60,14 +60,14 @@ class LoginView extends GetView<LoginController> {
                     onTap: () async {
 
                       if (_.isRegister.value) {
-                        await Auth().registerWithMailAndPassword(
+                       /* await Auth().registerWithMailAndPassword(
                             _.mailOrPhoneController.text,
-                            _.passwordController.text);
+                            _.passwordController.text);*/
                       }
                       else {
-                        await Auth().loginWithMailAndPassword(
+                      /*  await Auth().loginWithMailAndPassword(
                             _.mailOrPhoneController.text,
-                            _.passwordController.text);
+                            _.passwordController.text);*/
                       }
                     },
                     child: Container(
