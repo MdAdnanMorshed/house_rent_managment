@@ -11,7 +11,7 @@ class Auth{
   final FirebaseFirestore _cloudStore = FirebaseFirestore.instance;
 
   ///register
-  Future<void>registerWithMailAndPassword(String email,String password)async{
+  Future<void>registerWithMailAndPassword(String userName,String email,String password)async{
     print('Auth.registerWithMailAndPassword $email');
     print('Auth.registerWithMailAndPassword $password');
     final result=await _auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -29,7 +29,7 @@ class Auth{
 
     _cloudStore.collection('Register').doc(result.user!.uid.toString()).set({
       "uId":result.user!.uid.toString(),
-      "userName":"adnan",
+      "userName":userName,
       "userMail":result.user!.email.toString(),
       "registerBlockStatus":true,
     });

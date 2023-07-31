@@ -38,6 +38,15 @@ class LoginView extends GetView<LoginController> {
                   ),
                   _getDataPlayRole(_),
                   AppSpace.spaceH14,
+                  _.isRegister.value?CustomTextField(
+                    controller: controller.userController,
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    decoration: Helpers.customCircularDecoretion(
+                        context, AppColors.grey.withOpacity(0.2), 10),
+                    hintText: "user Name".tr,
+                    style: AppTextStyle.labelSmall,
+                  ):Container(),
+                  AppSpace.spaceH14,
                   CustomTextField(
                     controller: controller.mailOrPhoneController,
                     padding: const EdgeInsets.only(right: 10, left: 10),
@@ -61,11 +70,15 @@ class LoginView extends GetView<LoginController> {
                       Auth authentication  = Auth();
                       print(_.isRegister.value);
                       if (_.isRegister.value) {
+                        _.isRegister.value=false;
                         await authentication.registerWithMailAndPassword(
+                            _.userController.text,
                             _.mailOrPhoneController.text,
                             _.passwordController.text);
                       }
                       else {
+
+                        _.isRegister.value=true;
                         await authentication.loginWithMailAndPassword(
                             _.mailOrPhoneController.text,
                             _.passwordController.text);
@@ -79,14 +92,35 @@ class LoginView extends GetView<LoginController> {
                           context, AppColors.primaryColor, 10),
                       child:
 
-                      _.isRegister.value?
+
                       Text(
                         'Register'.tr,
                         style: AppTextStyle.button,
-                      ):Text(
-                        'Login'.tr,
-                        style: AppTextStyle.button,
-                      ),
+                      )
+                    ),
+                  ),
+                  AppSpace.spaceH12,
+                  InkWell(
+                    onTap: () async {
+                      Auth authentication  = Auth();
+
+                        await authentication.loginWithMailAndPassword(
+                            _.mailOrPhoneController.text,
+                            _.passwordController.text);
+
+                    },
+                    child: Container(
+                        height: 50,
+                        width: Get.width,
+                        alignment: Alignment.center,
+                        decoration: Helpers.customCircularDecoretion(
+                            context, AppColors.primaryColor, 10),
+                        child:
+
+                        Text(
+                          'Login'.tr,
+                          style: AppTextStyle.button,
+                        )
                     ),
                   )
                 ],

@@ -11,6 +11,7 @@ class LoginController extends GetxController {
   final _playRoles = <PlayRoleModel>[].obs;
 
   var mailOrPhoneController= TextEditingController();
+  var userController= TextEditingController();
   var passwordController= TextEditingController();
 
 
