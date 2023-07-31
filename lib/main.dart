@@ -15,7 +15,7 @@ late SharedPreferences preferences;
 Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -27,6 +27,7 @@ Future<void> main() async {
 
   await GetStorage.init();
   preferences = await SharedPreferences.getInstance();
+  await Firebase.initializeApp();
   runApp(GetMaterialApp(
       title: "Application",
       debugShowCheckedModeBanner: false,

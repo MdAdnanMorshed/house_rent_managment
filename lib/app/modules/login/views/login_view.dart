@@ -58,16 +58,17 @@ class LoginView extends GetView<LoginController> {
                   AppSpace.spaceH26,
                   InkWell(
                     onTap: () async {
-
+                      Auth authentication  = Auth();
+                      print(_.isRegister.value);
                       if (_.isRegister.value) {
-                       /* await Auth().registerWithMailAndPassword(
+                        await authentication.registerWithMailAndPassword(
                             _.mailOrPhoneController.text,
-                            _.passwordController.text);*/
+                            _.passwordController.text);
                       }
                       else {
-                      /*  await Auth().loginWithMailAndPassword(
+                        await authentication.loginWithMailAndPassword(
                             _.mailOrPhoneController.text,
-                            _.passwordController.text);*/
+                            _.passwordController.text);
                       }
                     },
                     child: Container(
@@ -78,7 +79,11 @@ class LoginView extends GetView<LoginController> {
                           context, AppColors.primaryColor, 10),
                       child:
 
+                      _.isRegister.value?
                       Text(
+                        'Register'.tr,
+                        style: AppTextStyle.button,
+                      ):Text(
                         'Login'.tr,
                         style: AppTextStyle.button,
                       ),

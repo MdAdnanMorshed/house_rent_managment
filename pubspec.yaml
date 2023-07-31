@@ -15,8 +15,9 @@ dependencies:
   dotted_border: ^2.0.0+3
   date_time_picker_widget: ^1.0.1+4
   cloud_firestore: ^4.5.0
+  firebase_auth: ^4.7.2
 
-  firebase_core: 2.9.0
+  firebase_core: 2.15.0
   firebase_database: 10.1.0
 
 
@@ -24,8 +25,6 @@ dependencies:
     sdk: flutter
   dropdown_button2: ^2.0.0
 
-dependency_overrides:
-  firebase_core_platform_interface: 4.6.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
