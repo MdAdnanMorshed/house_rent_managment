@@ -4,11 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:house_management/app/core/helpers/auth.dart';
 import 'package:house_management/app/models/create_flat_model.dart';
 import 'package:house_management/app/models/flat_floor_model.dart';
 import 'package:house_management/app/models/flat_no_model.dart';
 import 'package:house_management/app/models/flat_size_model.dart';
 
+import '../../../../main.dart';
 import '../../../routes/app_pages.dart';
 
 class CreateFlatController extends GetxController {
@@ -75,14 +77,19 @@ class CreateFlatController extends GetxController {
     _flatSizes.value = data;
   }
   createFlat() async {
+
+    var uId='JzcGiseb1ySHWWBLRBnk6qbpVIA2';
+
     final db = FirebaseFirestore.instance;
-    final refKey = db.collection('RentOwner_CreateFlat').doc();
+    final refKey = db.collection('RentOwner_CreateFlat').doc().collection(uId).doc();
+
 
     if (flatFloorID.toString() == '' &&
         flatSizeID.toString() == '' &&
         flatNoID.toString() == '') {
       Get.snackbar('Alert', 'Please Select your drop down ');
-    } else {
+    }
+    else {
       if (flatAmountController.text == '' &&
           flatServiceController.text == '' &&
           flatGasBillController.text == '' &&

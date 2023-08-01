@@ -308,6 +308,7 @@ class HomeView extends GetView<HomeController> {
 
   /// done
   getFlatList(BuildContext context, HomeController _) {
+
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection('RentOwner_CreateFlat').snapshots(),
       builder: ((context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -463,6 +464,7 @@ class HomeView extends GetView<HomeController> {
       }),
     );
   }
+
 }
 
 
